@@ -27,9 +27,9 @@ def normalize(name: str) -> str:
 def prod(L: list[int]) -> int:
     return reduce(lambda x, y: x * y, L)
 
-DIGITS = {'0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9}
+DIGITS: dict[str, int] = {'0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9}
 
-def char2num(s):
+def char2num(s) -> int:
     return DIGITS[s]
 
 def str2float(s: str) -> float:
@@ -40,8 +40,6 @@ def str2float(s: str) -> float:
     f2: float = reduce(lambda x, y: x * 10 + y, map(char2num, l[1])) / (10 ** len(l[1]))
     return f1 + f2
 
-
-
 def main() -> None:
     add(1, 2, abs)
     # * map
@@ -49,7 +47,6 @@ def main() -> None:
     print(list(r))
     print(reduce(fn,[1, 3, 5, 7, 9]))
     print(str2float("1382.345"))
-
 
 if __name__ == '__main__':
     main()
